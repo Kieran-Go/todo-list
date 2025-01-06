@@ -9,6 +9,7 @@ body{
     height: 100vh;
 }
 
+/* Sidebar styles */
 .sidebar{
     background-color: rgb(49, 134, 214);
     color: white;
@@ -18,10 +19,6 @@ body{
 
 .sidebar h1{
     text-align: center;
-}
-
-.main-content{
-    background-color: rgb(215, 215, 215);
 }
 
 .sidebar-projects-header{
@@ -36,16 +33,69 @@ body{
     cursor: pointer;
 }
 
+.del-btn{
+    width: 20px;
+}
+
 .sidebar-project{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     font-size: 1em;
     padding: 10px 15px;
     cursor: pointer;
     border-top: solid black 1px;
+    word-break: break-all;
 }
 .sidebar-project:hover{
-    background-color: rgb(235, 209, 17);
-    color: black;
+    background-color: rgb(32, 46, 199);
 }
 .sidebar-project:last-child{
-    border-bottom: solid black 1px;
+    border-bottom: solid rgb(0, 0, 0) 1px;
 }
+
+/* Main content styles */
+.main-content{
+    background-color: rgb(215, 215, 215);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 4.5fr;
+}
+
+.main-header{
+    margin: 30px;
+    min-width: 50%;
+    background-color: white;
+    border-radius: 50px;
+    grid-column: 1/-1;
+    width: fit-content;
+    word-break: break-all;
+}
+.main-header h1{
+    margin: 20px;
+}
+
+.main-project{
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.task-container, .task-info{
+    margin: 0px 30px 30px;
+    height: fit-content;
+    border-radius: 50px;
+    background-color: white;
+}
+
+.task-container-header, .task-info-header{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.plus-btn{
+    width: 20px;
+    cursor: pointer;
+}
+
