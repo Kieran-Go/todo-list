@@ -1,0 +1,51 @@
+body{
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.content{
+    display: grid;
+    grid-template-columns: 1fr 4.5fr;
+    width: 100%;
+    height: 100vh;
+}
+
+.sidebar{
+    background-color: rgb(49, 134, 214);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h1{
+    text-align: center;
+}
+
+.main-content{
+    background-color: rgb(215, 215, 215);
+}
+
+.sidebar-projects-header{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    margin: 0 15px;
+}
+
+.add-btn{
+    width: 25px;
+    cursor: pointer;
+}
+
+.sidebar-project{
+    font-size: 1em;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-top: solid black 1px;
+}
+.sidebar-project:hover{
+    background-color: rgb(235, 209, 17);
+    color: black;
+}
+.sidebar-project:last-child{
+    border-bottom: solid black 1px;
+}
