@@ -22,4 +22,12 @@ manager.addProject(
     ])
 );
 
+for(let i = 0; i < 5; i++){
+    manager.addProject(new Project(`Project ${i}`, []));
+}
+
 ui.populateSidebar(manager);
+ui.fillHeader(manager.projects[0].title);
+ui.populateTaskList(manager.projects[0], 0);
+
+console.log(manager.projects);

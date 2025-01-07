@@ -34,3 +34,19 @@ export function newImg(src = null, alt = null, id = null, classes = []) {
     }
     return img;
 }
+
+// Function to streamline creating an input element with optional parameters
+export function newInput(type, id = null, classes = []){
+    const inp = document.createElement("input");
+
+    inp.type = type;
+
+    // Set the id of the new element if provided
+    if (id) element.id = id;
+
+    // Set the classes for the new element if any are provided
+    if (classes.length > 0) {
+        classes.forEach(cls => inp.classList.add(cls));
+    }
+    return inp;
+}

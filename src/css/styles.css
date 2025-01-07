@@ -31,6 +31,7 @@ body{
 .add-btn{
     width: 25px;
     cursor: pointer;
+    margin-left: 10px;
 }
 
 .del-btn{
@@ -91,10 +92,82 @@ body{
 .task-container-header, .task-info-header{
     display: flex;
     justify-content: space-between;
-    margin: 20px;
+    margin: 30px;
+    margin-top: 10px;
 }
 
 .plus-btn{
     width: 20px;
     cursor: pointer;
+}
+
+.task{
+    margin: 5px 30px;
+    padding: 0 10px;
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr 1fr 0.2fr;
+    align-items: center;
+    justify-content: space-between;
+    border-top: solid rgb(189, 188, 188) 1px;
+}
+.task:hover{
+    background-color: rgb(205, 205, 205);
+}
+
+.checkbox{
+    width: 1.3em;
+    height: 1.3em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #000000;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-right: 20px;
+}
+.checkbox:hover{
+    background-color: rgb(190, 190, 190);
+}
+.checkbox:checked{
+    appearance: auto;
+    background-color: rgb(51, 173, 255);
+    clip-path: circle(50% at 50% 50%);
+}
+
+.task-name{
+    transition: 0.2s;
+}
+.task-complete{
+    text-decoration: line-through;
+    color: gray;
+}
+
+.priority-dot{
+    height: 10px;
+    width: 10px;
+    border-radius: 100px;
+    border: solid black 1px;
+    margin-right: 10px;
+}
+.priority-high{
+    background-color: rgb(255, 1, 1);
+}
+.priority-medium{
+    background-color: rgb(255, 166, 1);
+}
+.priority-low{
+    background-color: rgb(1, 255, 1);
+}
+
+.due-date{
+    margin-right: 30px;
+}
+
+.del-task-btn{
+    text-align: right;
+    cursor: pointer;
+    color: rgb(178, 4, 4);
 }
