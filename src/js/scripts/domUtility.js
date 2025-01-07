@@ -42,7 +42,7 @@ export function newInput(type, id = null, classes = []){
     inp.type = type;
 
     // Set the id of the new element if provided
-    if (id) element.id = id;
+    if (id) inp.id = id;
 
     // Set the classes for the new element if any are provided
     if (classes.length > 0) {

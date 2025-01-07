@@ -177,8 +177,35 @@ body{
     margin-top: 0px;
     grid-row: 2;
     grid-column: 2/3;
+    font-style: italic;
 }
 
 .no-task-msg{
     margin: 30px;
+}
+
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 4fr;
+    }
+
+    .sidebar {
+        width: 100%;
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
+
+    .sidebar-projects-header{
+        padding: 0px;
+        margin-top: -40px;
+    }
+
+    .main-header {
+        margin: 10px;
+        width: 90%;
+    }
+
+    .task-container {
+        margin: 10px;
+    }
 }
