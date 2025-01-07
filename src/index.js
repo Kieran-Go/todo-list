@@ -16,18 +16,11 @@ manager.addProject(
     new Project("Daily Routine", [
         new Task("Wake Up", "Start the day by waking up.", "2025-01-07 06:00 AM", "High", true),
         new Task("Morning Exercise", "Do a 30-minute workout to get energized.", "2025-01-07 06:30 AM", "Medium", true),
-        new Task("Breakfast", "Have a healthy breakfast to fuel your day.", "2025-01-07 07:15 AM", "Medium", false),
+        new Task("Breakfast", "Have a healthy breakfast to fuel your day.", "2025-01-07 07:15 AM", "low", false),
         new Task("Work", "Focus on work tasks and productivity.", "2025-01-07 09:00 AM", "High", false),
-        new Task("Relaxation", "Take a 15-minute break for relaxation.", "2025-01-07 02:00 PM", "Low", true),
     ])
 );
-
-for(let i = 0; i < 5; i++){
-    manager.addProject(new Project(`Project ${i}`, []));
-}
 
 ui.populateSidebar(manager);
 ui.fillHeader(manager.projects[0].title);
 ui.populateTaskList(manager.projects[0], 0);
-
-console.log(manager.projects);

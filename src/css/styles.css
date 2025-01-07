@@ -58,9 +58,6 @@ body{
 /* Main content styles */
 .main-content{
     background-color: rgb(215, 215, 215);
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr 4.5fr;
 }
 
 .main-header{
@@ -71,15 +68,11 @@ body{
     grid-column: 1/-1;
     width: fit-content;
     word-break: break-all;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);
 }
 .main-header h1{
     margin: 20px;
-}
-
-.main-project{
-    grid-column: 1/-1;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
 }
 
 .task-container, .task-info{
@@ -87,6 +80,8 @@ body{
     height: fit-content;
     border-radius: 50px;
     background-color: white;
+    padding-bottom: 20px;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);
 }
 
 .task-container-header, .task-info-header{
@@ -127,6 +122,7 @@ body{
     cursor: pointer;
     transition: 0.2s;
     margin-right: 20px;
+    margin-bottom: -40px;
 }
 .checkbox:hover{
     background-color: rgb(190, 190, 190);
@@ -139,6 +135,7 @@ body{
 
 .task-name{
     transition: 0.2s;
+    font-weight: bold;
 }
 .task-complete{
     text-decoration: line-through;
@@ -151,6 +148,7 @@ body{
     border-radius: 100px;
     border: solid black 1px;
     margin-right: 10px;
+    margin-bottom: -50px;
 }
 .priority-high{
     background-color: rgb(255, 1, 1);
@@ -164,10 +162,23 @@ body{
 
 .due-date{
     margin-right: 30px;
+    margin-bottom: -30px;
 }
 
 .del-task-btn{
     text-align: right;
     cursor: pointer;
     color: rgb(178, 4, 4);
+    margin-bottom: -25px;
+}
+
+.description{
+    color: gray;
+    margin-top: 0px;
+    grid-row: 2;
+    grid-column: 2/3;
+}
+
+.no-task-msg{
+    margin: 30px;
 }
