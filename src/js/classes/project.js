@@ -1,3 +1,5 @@
+import Task from "./task.js";
+
 export default class Project {
     static _idCounter = -1; // Auto incrementing ID that starts at 0
 
@@ -21,6 +23,9 @@ export default class Project {
     }
 
     // Setters
+    set id(id){
+        this._id = id;
+    }
     set title(title){
         this._title = title;
     }
@@ -38,8 +43,9 @@ export default class Project {
         this._tasks.splice(index, 1);
 
         // Sort the task IDs into sequential order after deletion
-        this._tasks.forEach((task, index) => {
-            task._id = index;
-        });
+        for(let i = 0; i < this._tasks.length; i++){
+            this._tasks[i].id = i;
+        }
+        Task._idCounter = this._tasks.length - 1;
     }
 }

@@ -36,7 +36,7 @@ export function newImg(src = null, alt = null, id = null, classes = []) {
 }
 
 // Function to streamline creating an input element with optional parameters
-export function newInput(type, id = null, classes = []){
+export function newInput(type, id = null, classes = [], name){
     const inp = document.createElement("input");
 
     inp.type = type;
@@ -48,5 +48,27 @@ export function newInput(type, id = null, classes = []){
     if (classes.length > 0) {
         classes.forEach(cls => inp.classList.add(cls));
     }
+
+    if(name) inp.name = name;
     return inp;
+}
+
+// Function to streamline creating a label
+export function newLabel(isFor, text = null, id = null, classes = []){
+    const label = document.createElement("label");
+
+    // Set the for
+    label.htmlFor = isFor;
+
+    // Set the text content if any is provided
+    if (text) label.textContent = text;
+
+    // Set the id of the new element if provided
+    if (id) label.id = id;
+
+    // Set the classes for the new element if any are provided
+    if (classes.length > 0) {
+        classes.forEach(cls => label.classList.add(cls));
+    }
+    return label;
 }

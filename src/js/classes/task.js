@@ -32,6 +32,9 @@ export default class Task {
     }
 
     // Setters
+    set id(id){
+        this._id = id;
+    }
     set title(title) {
         this._title = title;
     }

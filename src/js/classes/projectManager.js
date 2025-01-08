@@ -1,3 +1,5 @@
+import Project from "./project.js";
+
 export default class ProjectManager {
     constructor() {
         // Init an empty array of projects
@@ -12,8 +14,10 @@ export default class ProjectManager {
         this.projects.splice(index, 1);
 
         // Sort the project IDs into sequential order after deletion
-        this.projects.forEach((proj, index) => {
-            proj._id = index;
-        });
+        for(let i = 0; i < this.projects.length; i++){
+            this.projects[i].id = i;
+        }
+        // Set the id counter for correct auto-incrementation
+        Project._idCounter = this.projects.length - 1;
     }
 }

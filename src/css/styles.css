@@ -28,7 +28,7 @@ body{
     margin: 0 15px;
 }
 
-.add-btn{
+.add-project-btn{
     width: 25px;
     cursor: pointer;
     margin-left: 10px;
@@ -209,3 +209,82 @@ body{
         margin: 10px;
     }
 }
+
+/* Form styles */
+.form{
+    position: fixed;
+    background-color: rgb(217, 217, 220);
+    border: solid black 2px;
+    border-radius: 20px;
+    padding: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.form-project{
+    top: 5%;
+    left: 40%;
+}
+.form-task{
+    top: 5%;
+    left: 43%;
+}
+
+.form-invisible{
+    display: none;
+}
+
+.new-project-form h1{
+    margin-top: -10px;
+}
+
+.form label{
+    text-align: left;
+}
+
+.form input{
+    margin-bottom: 10px;
+}
+
+.form-description {
+    resize: horizontal;
+    height: 100px;
+}
+
+button{
+    background-color: rgb(94, 176, 253);
+    border-radius: 10px;
+    border: solid black 1px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+button:active {
+    background-color: rgb(72, 142, 216);
+    transform: scale(0.95);
+}
+
+.validation-msg{
+    color: gray;
+    font-size: 0.8em;
+    margin-top: -10px;
+}
+.invalid{
+    color: red;
+}
+
+.close-form-btn {
+    position: absolute;
+    top: -5px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.blur{
+    filter: blur(2.5px);
+    pointer-events: none;
+}
+
+

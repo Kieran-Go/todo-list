@@ -57,7 +57,5 @@ manager.addProject(
     ])
 );
 
-
-
 ui.populateSidebar(manager);
-ui.populateTaskList(manager.projects[0], 0);
+ui.populateTaskList(manager, manager.projects[0]);
