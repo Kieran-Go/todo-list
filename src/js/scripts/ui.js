@@ -1,5 +1,6 @@
 // Imported Scripts
 import * as dom from "./domUtility.js";
+import {saveToLocalStorage} from "../scripts/storageFunctions.js"
 // Imported media
 import deleteSVG from "../../media/images/del-btn.svg";
 import plusSVG from "../../media/images/plus-btn.svg";
@@ -36,7 +37,9 @@ export function addProjectToDom(manager, project){
 
     // Create the delete button's click event
     delBtn.addEventListener("click", () => {
+        // Delete the project
         manager.deleteProject(manager.projects.findIndex(p => p.id === project.id));
+        saveToLocalStorage("manager", manager);
 
         // Remove the project from the DOM
         div.remove();
@@ -150,6 +153,7 @@ function addTaskToDom(manager, task, project) {
     taskDeleteBtn.addEventListener("click", () => {
         // Find the index of the task by its ID and then delete it
         project.deleteTask(project.tasks.findIndex(t => t.id === task.id));
+        saveToLocalStorage("manager", manager);
     
         // Remove the task from the DOM
         div.remove();     
@@ -271,6 +275,7 @@ export function showProjectForm(manager){
         // Add the project to the array
         const newProj = new Project(title.value, []);
         manager.addProject(newProj);
+        saveToLocalStorage("manager", manager);
 
         // Add the project to the DOM
         addProjectToDom(manager, newProj);
@@ -402,6 +407,7 @@ export function showTaskForm(manager, project){
         
         // Add the task to the project
         project.addTask(newTask);
+        saveToLocalStorage("manager", manager);
 
         // Add the task to the DOM
         addTaskToDom(manager, newTask, project);
