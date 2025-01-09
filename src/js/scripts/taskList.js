@@ -4,9 +4,6 @@ import { saveToLocalStorage } from "./storageFunctions.js";
 import createForm from "./form.js";
 // Imported media
 import plusSVG from "../../media/images/plus-btn.svg";
-// Imported Classes
-import Task from "../classes/task.js";
-import Project from "../classes/project.js";
 
 const createTaskList = (manager, project) => {
   const taskListElement = document.querySelector(".task-container");
@@ -14,8 +11,9 @@ const createTaskList = (manager, project) => {
   // Render the task list
   const render = () => {
     // Set the project ID key to be accessed later
-    if(manager.projects.length > 0) document.querySelector(".key").id = project.id;
-    
+    if (manager.projects.length > 0)
+      document.querySelector(".key").id = project.id;
+
     // Clear the sidebar
     const content = document.querySelectorAll(".task");
     content.forEach((task) => {
@@ -50,7 +48,10 @@ const createTaskList = (manager, project) => {
     const taskContainer = document.querySelector(".task-container");
 
     // Create a div to contain the task
-    const div = dom.newElement("div", null, null, ["task", `from-project${project.id}`]);
+    const div = dom.newElement("div", null, null, [
+      "task",
+      `from-project${project.id}`,
+    ]);
 
     // Task name
     const taskName = dom.newElement("p", task.title, null, ["task-name"]);
@@ -168,7 +169,6 @@ const createTaskList = (manager, project) => {
       form.taskForm(); // Setup a task form
       form.show(); // Show the form
     });
-
   };
 
   // Initialize the task list
