@@ -12,9 +12,9 @@ import {
 
 // Init the manager
 const manager = loadFromLocalStorage("manager") || loadDefaultManager();
-// const manager = loadDefaultManager();
+
+// Init DOM 
 const sidebar = createSidebar(manager);
 const taskList = createTaskList(manager, manager.projects[0]);
-
 sidebar.init();
 taskList.init();

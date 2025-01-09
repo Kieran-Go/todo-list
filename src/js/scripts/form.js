@@ -121,6 +121,40 @@ const createForm = (manager, onFormSubmitted) => {
     formElement.appendChild(confirmBtn);
   };
 
+  // --- Adding Functions ---
+   // Add project
+   const addProject = () => {
+    const title = document.getElementById("input-title").value;
+    const newProject = new Project(title, []);
+    manager.addProject(newProject);
+    saveToLocalStorage("manager", manager);
+    onFormSubmitted(); // Callback to re-render the sidebar
+  };
+
+  // Add task
+  const addTask = () => {
+    // Get all user input for the task properties
+    const title = document.getElementById("input-title").value;
+    const desc = document.getElementById("input-desc").value;
+    const dueDate = document.getElementById("input-date").value;
+    let priority = "Low"; // Default to low as a fail safe
+    document.querySelectorAll(`input[name="priority"]`).forEach((radio) =>{
+      if (radio.checked) priority = radio.value;
+    });
+
+    // Create the task
+    const newTask = new Task(title, desc, dueDate, priority, false);
+
+    // Get the project ID by using the key in the DOM
+    const key = document.querySelector(".key").id;
+    const project = manager.projects[key];
+    
+    // Add the project
+    project.addTask(newTask);
+    saveToLocalStorage("manager", manager);
+    onFormSubmitted(); // Callback to re-render the task list
+  };
+
   // --- Validation Functions --- 
   // Validate the project form
   const validateProjectForm = () => {
@@ -240,127 +274,7 @@ const createForm = (manager, onFormSubmitted) => {
     return true;
   };
 
-  // --- Adding Functions ---
-   // Add project
-   const addProject = () => {
-    const title = document.getElementById("input-title").value;
-    const newProject = new Project(title, []);
-    manager.addProject(newProject);
-    saveToLocalStorage("manager", manager);
-    onFormSubmitted(); // Callback to re-render the sidebar
-  };
-
-  // Add task
-  const addTask = () => {
-    // Get all user input for the task properties
-    const title = document.getElementById("input-title").value;
-    const desc = document.getElementById("input-desc").value;
-    const dueDate = document.getElementById("input-date").value;
-    let priority = "Low"; // Default to low as a fail safe
-    document.querySelectorAll(`input[name="priority"]`).forEach((radio) =>{
-      if (radio.checked) priority = radio.value;
-    });
-
-    // Create the task
-    const newTask = new Task(title, desc, dueDate, priority, false);
-
-    // Get the project ID by using the key in the DOM
-    const key = document.querySelector(".key").id;
-    const project = manager.projects[key];
-    
-    // Add the project
-    project.addTask(newTask);
-    saveToLocalStorage("manager", manager);
-    onFormSubmitted(); // Callback to re-render the task list
-  };
-
   return { projectForm, taskForm, show, hide };
 };
 
 export default createForm;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export function showTaskForm(manager, project) {
-  // Create the confirm button
-  const confirmBtn = dom.newElement("button", "Confirm", null, ["confirm"]);
-  confirmBtn.addEventListener("click", () => {
-    // validate the form
-    if (title.value.trim() === "") {
-      titleValidationMsg.textContent = "Error: Empty title";
-      titleValidationMsg.classList.add("invalid");
-      return;
-    } else if (title.value.length > 25) {
-      titleValidationMsg.textContent = "Error: Title is over 25 characters";
-      titleValidationMsg.classList.add("invalid");
-      return;
-    } else titleValidationMsg.classList.remove("invalid");
-
-    if (description.value.trim() === "") {
-      descriptionValidationMsg.textContent = "Error: Empty description";
-      descriptionValidationMsg.classList.add("invalid");
-      return;
-    } else descriptionValidationMsg.textContent = "";
-
-    if (dueDate.value === "") {
-      dateValidationMsg.textContent = "Error: Date required";
-      dateValidationMsg.classList.add("invalid");
-      return;
-    } else dateValidationMsg.textContent = "";
-
-    // get the checked radio button
-    const radios = document.querySelectorAll('input[name="priority"]');
-    let selectedPriority = null;
-    radios.forEach((radio) => {
-      if (radio.checked) {
-        selectedPriority = radio.value;
-      }
-    });
-
-    if (selectedPriority === null) {
-      radioValidationMsg.textContent = "Error: Select a priority";
-      radioValidationMsg.classList.add("invalid");
-      return;
-    } else radioValidationMsg.textContent = "";
-
-    // Create the task
-    const newTask = new Task(
-      title.value,
-      description.value,
-      dueDate.value,
-      selectedPriority,
-      false,
-    );
-
-    // Add the task to the project
-    project.addTask(newTask);
-    saveToLocalStorage("manager", manager);
-
-    // Add the task to the DOM
-    addTaskToDom(manager, newTask, project);
-
-    // Remove the no task message
-    document.querySelector(".task-header").textContent = "";
-    const noTaskMsg = document.querySelector(".no-task-msg");
-    if (noTaskMsg) noTaskMsg.remove();
-
-    closeForm();
-  });
-  //Append the confirm button
-  form.appendChild(confirmBtn);
-}
