@@ -1,8 +1,6 @@
 export default class Task {
-  static _idCounter = -1; // Auto incrementing ID that starts at 0
-
   constructor(title, description, dueDate, priority, complete = false) {
-    this._id = ++Task._idCounter;
+    // this._id = ++Task._idCounter;
     this._title = title;
     this._description = description;
     this._dueDate = dueDate;
@@ -10,10 +8,6 @@ export default class Task {
     this._complete = complete;
   }
 
-  // Getters and Setters
-  get id() {
-    return this._id;
-  }
   get title() {
     return this._title;
   }
@@ -30,9 +24,6 @@ export default class Task {
     return this._complete;
   }
 
-  set id(id) {
-    this._id = id;
-  }
   set title(title) {
     this._title = title;
   }

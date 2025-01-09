@@ -255,12 +255,12 @@ body {
   height: 100px;
 }
 
-fieldset{
+fieldset {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
 
-input[type="radio"]{
+input[type="radio"] {
   margin: 0px 5px;
 }
 
@@ -280,10 +280,9 @@ button:active {
   color: gray;
   font-size: 0.8em;
   margin-top: -10px;
-  
 }
 
-.invalid{
+.invalid {
   border-color: red;
 }
 .invalid:not(input):not(textarea) {

@@ -41,14 +41,8 @@ export default class Project {
     this._tasks.push(task);
   }
 
-  deleteTask(id) {
-    this._tasks.splice(id, 1);
-
-    // Sort the task IDs into sequential order after deletion
-    for (let i = 0; i < this._tasks.length; i++) {
-      this._tasks[i].id = i;
-    }
-    Task._idCounter = this._tasks.length - 1;
+   deleteTask(taskIndex) {
+    this._tasks.splice(taskIndex, 1);
   }
 
   // Convert to plain object for JSON serialization

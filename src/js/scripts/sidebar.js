@@ -5,9 +5,6 @@ import createForm from "./form.js";
 import createTaskList from "./taskList.js";
 // Imported media
 import deleteSVG from "../../media/images/del-btn.svg";
-// Imported Classes
-import Task from "../classes/task.js";
-import Project from "../classes/project.js";
 
 const createSidebar = (manager) => {
   const sidebarElement = document.querySelector(".sidebar");
