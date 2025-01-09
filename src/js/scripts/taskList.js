@@ -155,10 +155,13 @@ const createTaskList = (manager, project) => {
   };
 
   const deleteTask = (task) => {
-    // First delete the task from the project tasks array
-    project.deleteTask(task.id);
+    // Remove the task from the project
+    const taskIndex = project.tasks.indexOf(task); // Find the index
+    if (taskIndex !== -1) {
+      project.deleteTask(taskIndex);
+    }
     saveToLocalStorage("manager", manager);
-
+  
     // Re-render the task list
     render();
   };
