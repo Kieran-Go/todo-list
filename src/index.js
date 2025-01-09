@@ -2,7 +2,6 @@
 import "./css/normalize.css";
 import "./css/styles.css";
 // Imported Scripts
-import * as ui from "./js/scripts/ui.js";
 import createSidebar from "./js/scripts/sidebar.js";
 import createTaskList from "./js/scripts/taskList.js";
 import {
