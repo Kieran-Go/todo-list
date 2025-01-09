@@ -11,12 +11,10 @@ import {
 } from "./js/scripts/storageFunctions.js";
 
 // Init the manager
-// const manager = loadFromLocalStorage("manager") || loadDefaultManager();
-const manager = loadDefaultManager();
+const manager = loadFromLocalStorage("manager") || loadDefaultManager();
+// const manager = loadDefaultManager();
 const sidebar = createSidebar(manager);
 const taskList = createTaskList(manager, manager.projects[0]);
 
 sidebar.init();
 taskList.init();
-
-console.log("hello");

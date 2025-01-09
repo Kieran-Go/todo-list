@@ -13,6 +13,9 @@ const createTaskList = (manager, project) => {
 
   // Render the task list
   const render = () => {
+    // Set the project ID key to be accessed later
+    if(manager.projects.length > 0) document.querySelector(".key").id = project.id;
+    
     // Clear the sidebar
     const content = document.querySelectorAll(".task");
     content.forEach((task) => {
@@ -47,7 +50,7 @@ const createTaskList = (manager, project) => {
     const taskContainer = document.querySelector(".task-container");
 
     // Create a div to contain the task
-    const div = dom.newElement("div", null, null, ["task"]);
+    const div = dom.newElement("div", null, null, ["task", `from-project${project.id}`]);
 
     // Task name
     const taskName = dom.newElement("p", task.title, null, ["task-name"]);
@@ -64,7 +67,7 @@ const createTaskList = (manager, project) => {
     checkbox.addEventListener("click", () => {
       // Toggle the task completion status
       task.complete = !task.complete;
-      saveToLocalStorage(manager);
+      saveToLocalStorage("manager", manager);
 
       // Assign the completed class to the task name
       taskName.classList.toggle("task-complete");
@@ -124,6 +127,9 @@ const createTaskList = (manager, project) => {
     // Append the header
     taskListElement.appendChild(header);
 
+    // Initialize the 'add task' button
+    initAddTaskButton();
+
     // Append a 'no tasks' message if there are no tasks
     if (noTasks)
       taskListElement.appendChild(
@@ -154,6 +160,15 @@ const createTaskList = (manager, project) => {
 
     // Re-render the task list
     render();
+  };
+
+  const initAddTaskButton = () => {
+    document.querySelector(".plus-btn").addEventListener("click", () => {
+      const form = createForm(manager, render); // Initialize the form
+      form.taskForm(); // Setup a task form
+      form.show(); // Show the form
+    });
+
   };
 
   // Initialize the task list

@@ -75,7 +75,8 @@ const createSidebar = (manager) => {
 
   const initAddProjectButton = () => {
     document.querySelector(".add-project-btn").addEventListener("click", () => {
-      const form = createForm(manager, render); // Create and display the form
+      const form = createForm(manager, render); // Initialize the form
+      form.projectForm(); // Setup a project form
       form.show(); // Show the form
     });
   };

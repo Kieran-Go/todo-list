@@ -9,7 +9,6 @@ export default [
       globals: globals.browser, // Adds browser globals like window, document, etc.
     },
     rules: {
-      // Enforce semicolons at the end of statements
       semi: ["error", "always"], // Enforce semicolons at the end of statements
     },
   },

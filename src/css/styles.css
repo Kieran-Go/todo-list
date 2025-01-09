@@ -149,13 +149,13 @@ body {
   width: 10px;
   border-radius: 100px;
   border: solid black 1px;
-  margin-right: 10px;
+  margin-right: 0px;
   margin-bottom: -50px;
 }
 .priority-high {
   background-color: rgb(255, 1, 1);
 }
-.priority-medium {
+.priority-med {
   background-color: rgb(255, 166, 1);
 }
 .priority-low {
@@ -255,6 +255,15 @@ body {
   height: 100px;
 }
 
+fieldset{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+input[type="radio"]{
+  margin: 0px 5px;
+}
+
 button {
   background-color: rgb(94, 176, 253);
   border-radius: 10px;
@@ -271,8 +280,13 @@ button:active {
   color: gray;
   font-size: 0.8em;
   margin-top: -10px;
+  
 }
-.invalid {
+
+.invalid{
+  border-color: red;
+}
+.invalid:not(input):not(textarea) {
   color: red;
 }
 
