@@ -226,11 +226,11 @@ body {
 }
 
 .form-project {
-  top: 5%;
+  top: 2%;
   left: 40%;
 }
 .form-task {
-  top: 5%;
+  top: 2%;
   left: 43%;
 }
 
@@ -287,6 +287,13 @@ button:active {
 }
 .invalid:not(input):not(textarea) {
   color: red;
+}
+
+textarea{
+  resize: horizontal;
+  min-width: 200px;
+  max-width: 700px;
+  height: 100px;
 }
 
 .close-form-btn {
